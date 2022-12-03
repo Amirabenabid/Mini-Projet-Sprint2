@@ -1,0 +1,34 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un musique :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID musique</label>
+            <input type="text" [(ngModel)]="newmusique.idmusique" name="idmusique" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom musique</label>
+            <input type="text" [(ngModel)]="newmusique.nommusique" name="nommusique" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix musique</label>
+            <input type="number" [(ngModel)]="newmusique.prixmusique" name="prixmusique" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [(ngModel)]="newmusique.dateCreation" name="dateCreation" class="form-control">
+        </div>
+       <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>style</label>
+            <select class="form-control form-control-lg" id="idst" name="idst" [(ngModel)]="newIdst">
+             <option *ngFor="let st of styles" [value]="st.idst" >
+             {{st.nomst}}
+            </option>
+            </select>
+        </div> 
+        <div class="mt-2">
+            <button type="submit" (click)="addmusique()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

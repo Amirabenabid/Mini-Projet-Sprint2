@@ -1,0 +1,16 @@
+<form>
+    <div [hidden]="ajout">
+    <label>ID Style</label>
+    <input type="text" [(ngModel)]="style.idst" name="idstyle" class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom Style</label>
+    <input type="text" [(ngModel)]="style.nomst" name="nomstyle" class="form-control"
+    placeholder="Entrez un nom de Style...">
+    </div>
+    <div class="mt-2">
+     <button type="submit" [disabled]="!style.nomst" class="btn btn-success" (click)="savestyle()" >{{ajout ? 'Ajouter' : 'Editer'}}
+    </button>
+    </div>
+    </form>
+    

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>styles </label>
+        <select class="form-control form-control-lg" id="idst" name="idst"
+        [(ngModel)]="Idstyle" (change)="onChange()">
+        <option *ngFor="let st of styles" value="{{st.idst}}">
+        {{st.nomst}}
+         </option>
+        </select>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <tr> <th>Id</th><th>Nom</th> <th>Prix</th> <th>Date Création</th><th>Style</th><th></th>
+
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let musique of musiques">
+                    <tr>
+                        <td>{{musique.idmusique}}</td>
+                        <td>{{musique.nommusique}}</td>
+                        <td>{{musique.prixmusique}}</td>
+                        <td>{{musique.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{musique.style?.nomst}}</td> 
+                        <td><a *ngIf="authService.isAdmin()"class="btn btn-danger" (click)="supprimermusique(musique)">Supprimer</a></td>
+                            
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatemusique',musique.idmusique]">Modifier</a></td>
+                    
+                        <!-- <td><a class="btn btn-danger" (click)="supprimermusique(musique)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updatemusique',musique.idmusique]">Modifier</a></td>  -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
